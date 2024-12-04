@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {MyMeals} from './MyMeals';
+import {useEffect, useState } from 'react';
+import { getAllMeals, addMeal } from './FetchMeals';
+
 
 function App() {
+
+  const [myMeal, setMeal]= useState ([]);
+  const [title, setTitle] = useState("")
+
+  useEffect (() => {
+    getAllMeals(setMeal)
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>
+      <h1>Meal Plan</h1>
+      <input 
+      type="text"
+      placeholder="Add a meal"
+      value = {title}
+      onChange={(e)=> setTitle (console.log(e.target.value))}
+      />
+      <button onClick = {()=> addMeal(title, setTitle, setMeal)}>ADD </button>
+
+      {myMeal.map((meal)=> <MyMeals text = {meal.title} key = {meal._id}/>)}
+
+
+     {/* <MyMeals text = "WE GOT HERE!!!"/> */}
+      <p></p>
+         </div>
   );
 }
 
