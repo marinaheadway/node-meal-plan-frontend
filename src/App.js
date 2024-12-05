@@ -28,7 +28,7 @@ function App() {
       {myMeal.map((meal)=> <MyMeals text = {meal.title} key = {meal._id}/>)}
 
 
-     {/* <MyMeals text = "WE GOT HERE!!!"/> */}
+ 
       <p></p>
          </div>
   );

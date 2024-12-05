@@ -8,7 +8,7 @@ const getAllMeals = (setMeal)  => {
 }
 
 const addMeal = (title, setTitle, setMeal) => {
-    axios.post ('http://localhost:7000/saveMeal', {title})
+    axios.post ('http://localhost:7000/saveMeals', {title})
     .then((data) => {
         console.log (data);
         setTitle("");
