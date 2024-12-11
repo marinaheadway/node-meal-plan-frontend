@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const getAllMeals = (setMeal)  => {
-    axios.get("http://localhost:7000")
+    axios.get("https://meal-plan-z2el.onrender.com")
     .then(({data}) => {
         console.log(data)
         setMeal(data);
@@ -9,7 +9,7 @@ const getAllMeals = (setMeal)  => {
 }
 
 const addMeal = (title, setTitle, setMeal) => {
-    axios.post(`http://localhost:7000/saveMeals`,{title})
+    axios.post(`https://meal-plan-z2el.onrender.com/saveMeals`,{title})
     .then((data) => {
         console.log (data)
         setTitle("")
@@ -18,7 +18,7 @@ const addMeal = (title, setTitle, setMeal) => {
 }
 
 const  editMeal = (mealId, title, setMeal, setTitle, setEditing) => {
-    axios.post(`http://localhost:7000/editMeal`, {_id: mealId, title})
+    axios.post(`https://meal-plan-z2el.onrender.com/editMeal`, {_id: mealId, title})
     .then((data) => {
         console.log (data)
         setTitle("")
@@ -28,7 +28,7 @@ const  editMeal = (mealId, title, setMeal, setTitle, setEditing) => {
 }
 
 const deleteMeal = (_id, setMeal)=> {
-    axios.post(`http://localhost:7000/deleteMeal`, {_id})
+    axios.post(`https://meal-plan-z2el.onrender.com/deleteMeal`, {_id})
     .then((data) => {
         console.log (data)
         getAllMeals(setMeal)
